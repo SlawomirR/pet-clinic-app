@@ -1,50 +1,183 @@
-# Compiled class file
-*.class
-
-# Log file
-*.log
-
+######################
 # BlueJ files
+######################
 *.ctxt
 
+######################
 # Mobile Tools for Java (J2ME)
+######################
 .mtj.tmp/
 
-# Package Files #
+######################
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+######################
+hs_err_pid*
+
+######################
+# STS
+######################
+.apt_generated
+.settings
+.springBeans
+.sts4-cache
+
+######################
+# NetBeans
+######################
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+.nb-gradle/
+/.nb-gradle/# Compiled class file
+
+######################
+# Project Specific
+######################
+/build/www/**
+/src/test/javascript/coverage/
+/src/test/javascript/PhantomJS*/
+
+######################
+# Node
+######################
+/node/
+node_tmp/
+node_modules/
+npm-debug.log.*
+
+######################
+# SASS
+######################
+.sass-cache/
+
+######################
+# Eclipse
+######################
+*.pydevproject
+.project
+.metadata
+tmp/
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.factorypath
+/src/main/resources/rebel.xml
+
+# External tool builders
+.externalToolBuilders/**
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+
+######################
+# Intellij
+######################
+.idea/
+*.iml
+*.iws
+*.ipr
+*.ids
+*.orig
+
+######################
+# Visual Studio Code
+######################
+.vscode/
+
+######################
+# Maven
+######################
+/log/
+/target/
+
+######################
+# Gradle
+######################
+.gradle/
+/build/
+
+######################
+# Package Files
+######################
 *.jar
 *.war
 *.ear
+*.car
+*.db
 *.zip
 *.tar.gz
 *.rar
+*.tgz
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+######################
+# Windows
+######################
+# Windows image file caches
+Thumbs.db
 
-.gradle
-/build/
+# Folder config file
+Desktop.ini
+
+######################
+# Mac OSX
+######################
+.DS_Store
+.svn
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+######################
+# Directories
+######################
+/bin/
+/deploy/
+/out/
+
+######################
+# Logs
+######################
+*.log
+
+######################
+# Others
+######################
+/target/
+*.class
+*.*~
+*~
+.merge_file*
+*.old
+
+######################
+# Gradle Wrapper
+######################
 !gradle/wrapper/gradle-wrapper.jar
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
+######################
+# Maven Wrapper
+######################
+!.mvn/wrapper/maven-wrapper.jar
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
-out/
-bin/
+######################
+# ESLint
+######################
+.eslintcache
