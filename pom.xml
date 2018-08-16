@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>pet-clinic-spring</artifactId>
+    <artifactId>pet-clinic-app</artifactId>
     <version>0.0.3-SNAPSHOT</version>
 
     <modules>
@@ -14,7 +14,7 @@
 
     <packaging>pom</packaging>
 
-    <name>SlawomirR_PetClinic-Spring</name>
+    <name>SlawomirR_spring5_pet-clinic</name>
     <description>Pet Clinic project using Spring</description>
 
     <parent>
