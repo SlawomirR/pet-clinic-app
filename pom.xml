@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
+    <groupId>io.github.slawomirr</groupId>
     <artifactId>pet-clinic-app</artifactId>
     <version>0.0.3-SNAPSHOT</version>
 
@@ -48,7 +48,7 @@
     </build>
 
     <scm>
-        <developerConnection>scm:git:git@github.com:SlawomirR/PetClinic--Spring.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:SlawomirR/pet-clinic-app.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 </project>
