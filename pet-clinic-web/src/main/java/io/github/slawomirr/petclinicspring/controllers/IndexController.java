@@ -11,4 +11,9 @@ public class IndexController {
 
         return "index";
     }
+
+    @GetMapping("/oups")
+    public String errorHandler() {
+        return "notImplemented";
+    }
 }
