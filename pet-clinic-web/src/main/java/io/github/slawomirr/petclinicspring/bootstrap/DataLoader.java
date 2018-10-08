@@ -1,10 +1,8 @@
 package io.github.slawomirr.petclinicspring.bootstrap;
 
-import io.github.slawomirr.petclinicspring.model.Owner;
-import io.github.slawomirr.petclinicspring.model.Pet;
-import io.github.slawomirr.petclinicspring.model.PetType;
-import io.github.slawomirr.petclinicspring.model.Vet;
+import io.github.slawomirr.petclinicspring.model.*;
 import io.github.slawomirr.petclinicspring.services.OwnerService;
+import io.github.slawomirr.petclinicspring.services.SpecialtyService;
 import io.github.slawomirr.petclinicspring.services.VetService;
 import io.github.slawomirr.petclinicspring.services.map.PetTypeService;
 import org.springframework.boot.CommandLineRunner;
@@ -18,23 +16,43 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
     private final PetTypeService petTypeService;
+    private final SpecialtyService specialtyService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialtyService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
+        this.specialtyService = specialtyService;
     }
 
     @Override
     public void run(String... args) {
+        int count = petTypeService.findAll().size();
+        if (count == 0) {
+            loadData();
+        }
+    }
 
+    private void loadData() {
         PetType dog = new PetType();
         dog.setName("Dog");
-        PetType saveDogPetType = petTypeService.save(dog);
+        PetType savedDogPetType = petTypeService.save(dog);
 
         PetType cat = new PetType();
         cat.setName("Cat");
-        PetType saveCatPetType = petTypeService.save(cat);
+        PetType savedCatPetType = petTypeService.save(cat);
+
+        Speciality radiology = new Speciality();
+        radiology.setDescription("Radiology");
+        Speciality savedRadiology = specialtyService.save(radiology);
+
+        Speciality surgery = new Speciality();
+        surgery.setDescription("Surgery");
+        Speciality savedSurgery = specialtyService.save(surgery);
+
+        Speciality dentistry = new Speciality();
+        dentistry.setDescription("Dentistry");
+        Speciality savedDentistry = specialtyService.save(dentistry);
 
         Owner mikeWeston = new Owner();
         mikeWeston.setFirstName("Michael");
@@ -45,7 +63,7 @@ public class DataLoader implements CommandLineRunner {
         ownerService.save(mikeWeston);
 
         Pet mikesPet = new Pet();
-        mikesPet.setPetType(saveDogPetType);
+        mikesPet.setPetType(savedDogPetType);
         mikesPet.setOwner(mikeWeston);
         mikesPet.setBirthDate(LocalDate.now());
         mikesPet.setName("Rosco");
@@ -63,23 +81,22 @@ public class DataLoader implements CommandLineRunner {
         fionasPet.setName("Just Cat");
         fionasPet.setOwner(fionaGlenanne);
         fionasPet.setBirthDate(LocalDate.now());
-        fionasPet.setPetType(saveCatPetType);
+        fionasPet.setPetType(savedCatPetType);
         fionaGlenanne.getPets().add(fionasPet);
 
         System.out.println("Loaded Owners....");
 
-        Vet vet1 = new Vet();
-        vet1.setId(4L); // TODO - delete this after some tests.
-        vet1.setFirstName("Sam");
-        vet1.setLastName("Axe");
+        Vet samAxe = new Vet();
+        samAxe.setFirstName("Sam");
+        samAxe.setLastName("Axe");
+        samAxe.getSpecialities().add(savedRadiology);
+        vetService.save(samAxe);
 
-        vetService.save(vet1);
-
-        Vet vet2 = new Vet();
-        vet2.setFirstName("Jessie");
-        vet2.setLastName("Porter");
-
-        vetService.save(vet2);
+        Vet jessiePorter = new Vet();
+        jessiePorter.setFirstName("Jessie");
+        jessiePorter.setLastName("Porter");
+        jessiePorter.getSpecialities().add(savedSurgery);
+        vetService.save(jessiePorter);
 
         System.out.println("Loaded Vets....");
     }
